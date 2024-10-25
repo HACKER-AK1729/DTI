@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+* {
+    margin:0;
+    padding:0;
+}
+
+html,body {
+    display:flex;
+    width:100%;
+    height:100%;
+    justify-content:center;
+    align-items:center;
+}
+
+.container {
+    display:flex;
+    width:1000px;
+    height:600px;
+    box-shadow:15px 5px 20px hsl(240, 14%, 77%);
+}
+
+.visible {
+    display:flex;
+}
+
+.hidden {
+    display:none;
+}
+
+.container-part1 {
+    display:flex;
+    flex-direction: column;
+    background-color: #ff2952;
+    width:50%;
+    color:white;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+
+.header {
+    font-size:60px;
+    font-weight:bold;
+}
+
+.info,.forgotPassword {
+    font-size:25px;
+    padding:0px 30px 0px 30px;
+    text-align: center;
+}
+
+.btn1 button {
+    font-size:15px;
+    width:11em;
+    height:3em;
+    background-color: #ff2952;
+    border:1 solid;
+    border-color:hsl(240, 14%, 77%);
+    border-radius:30em;
+    color:white;
+}
+
+.container-part2 {
+    display:flex;
+    flex-direction: column;
+    width:50%;
+    padding:10px;
+    gap:10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper .button {
+    display:inline-block;
+    height:50px;
+    width:50px;
+    margin:0 5px;
+    overflow:hidden;
+    background:#fff;
+    border-radius: 50px;
+    cursor:pointer;
+    transition:all 0.3s ease-out;
+
+}
+
+.wrapper .button:hover {
+    width:125px;
+
+}
+
+.wrapper .button .icon {
+    display:inline-block;
+    height:50px;
+    width:50px;
+    text-align: center;
+    border-radius:50px;
+    box-sizing: border-box;
+    line-height: 50px;
+}
+
+.wrapper .button .icon i {
+    font-size: 15px;
+    line-height: 50px;
+
+}
+
+.wrapper .button:nth-child(1):hover .icon i{
+    color:#1DA1F2;
+}
+
+.wrapper .button:nth-child(2):hover .icon i{
+    color: #0077B5;
+}
+
+.wrapper .button:nth-child(3):hover .icon i{
+    color:#ff0000;
+}
+
+.wrapper .button span {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 50px;
+}
+
+.form {
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+}
+
+input {
+    background-color:#EEEEEE;
+    border:0;
+    width:400px;
+    height:35px;
+    padding:10px;
+    font-size:20px;
+    color:black;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.heading {
+    font-size:65px;
+}
+
+.btn button {
+    height:3em;
+    width:9em;
+    border-radius:30em;
+    color:black;
+    border:none;
+    font-size:15px;
+    font-family: inherit;
+    position:relative;
+    overflow:hidden;
+    z-index:1;
+}
+
+.btn button:before {
+    content:'';
+    width:0;
+    height:3em;
+    border-radius: 30em;
+    position:absolute;
+    top:0;
+    left:0;
+    background-image: linear-gradient(to
+        right,  #ff2952 0%, #f9f0f7);
+    transition: .5s ease;
+    display:block;
+    z-index: -1;
+}
+
+.btn button:hover::before {
+    width: 10em;
+}
+
+.btn button:hover {
+    color:white;
+}
+    </style>
+</head>
+<body>
+    
+    <form action="/login" method="post">
+        <div class="container container1 ">
+            <div class="container-part2">
+              <h1 class="heading">Sign In</h1>
+              <div class=" form-container sign-up-container">
+                <div class="wrapper">
+                  <div class="button">
+                    <div class="icon"><i class="bi bi-google"></i></div>
+                   <a href="/auth/google" style="text-decoration: none;">Google</a>
+                  </div>
+                  <div class="button">
+                    <div class="icon"><i class="bi bi-linkedin"></i></div>
+                    <span>LinkedIn</span>
+                  </div>
+                  <div class="button">
+                    <div class="icon"><i class="bi bi-youtube"></i></div>
+                    <span>Youtube</span>
+                  </div>
+                </div>
+              </div>
+              <p style="font-size:20px;color:gray;">or use your email for registration</p>
+              <form class="form">
+                <input type="text" name="username" placeholder="username" required /><br />
+                <input type="password" name="password" placeholder="Password" required />
+              </form>
+              <p class="forgotPassword" style="font-size:20px;color:gray;">Forgot your password?</p>
+              <div class="btn"><button class="signIn" type="submit">SIGN IN</button></div>
+            </div>
+             <div class="container-part1 form-container sign-in-container">
+                <p class="header">Hello, Friend!</p>
+                <p class="info">Enter your personal details and start journey with us.</p>
+                <div class="btn1"><button id="toggle" ><a href="/signup" style="color:white; text-decoration: none;">SIGN UP</a></button></div>
+              </div>
+          </div>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User SignUp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(208, 195, 197);
+        }
+
+        form {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+           
+        }
+
+        label {
+            display: block;
+            margin-bottom: -6px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            gap: initial;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+       
+    </style>
+</head>
+<body>
+    
+    <form action="/signup" method="POST">
+        <h1>User SignUp</h1></body><br>
+    <label for="username"> Enter the name :</label></br>
+    <input type="text" placeholder="enter name"  name="username"><br>
+    <label for="username">Enter your Email :</label></br>
+    <input type="email" placeholder="Email "  name="email" id="email"><br>
+    <label for="password">Enter your password :</label><br>
+    <input type="text" required name="password">
+    <button type="submit">Generate</button>
+</form>
+</body>
+</html> -->

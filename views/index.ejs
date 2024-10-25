@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Wearable Device</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            background: url('https://thumbs.dreamstime.com/z/blind-person-walking-stick-street-using-red-white-130545959.jpg') no-repeat center center/cover;
+            
+            height: 70vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 6px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        .mission-vision {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 20px;
+            background-color: #f4f4f4;
+        }
+        .mission, .vision {
+            width: 45%;
+            text-align: center;
+        }
+        .mission h2, .vision h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .mission p, .vision p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        .story-section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .story-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .story-section p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .team-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #f4f4f4;
+            margin: 20px 0;
+          
+        }
+        .team-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        .team-member {
+            
+            margin: 0 20px;
+            text-align: center;
+        }
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            align-items: center;
+        }
+        .team-member h3 {
+            margin-top: 15px;
+            font-size: 1.5rem;
+        }
+        .team-member p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .impact-section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .impact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        .impact-stats {
+            display: flex;
+            justify-content: space-around;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat h3 {
+            font-size: 2rem;
+            color: #f04e23;
+        }
+        .stat p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        .cta-section {
+            background-color: #f04e23;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .cta-section a {
+            background-color: white;
+            color: #f04e23;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <% layout("/layouts/boilerplate") %>
+
+    <section class="hero">
+        <h1>Our Story</h1>
+        <p>Empowering the visually impaired to navigate with confidence.</p>
+    </section>
+
+    <section class="mission-vision">
+        <div class="mission">
+            <h2>Our Mission</h2>
+            <p>To improve the lives of visually impaired individuals by providing them with an innovative wearable device that makes navigation simple, safe, and reliable.</p>
+        </div>
+        <div class="vision">
+            <h2>Our Vision</h2>
+            <p>We aspire to create a world where technology bridges the gap in accessibility, offering independence and confidence to all individuals with visual impairments.</p>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <h2>Our Journey</h2>
+        <p>Wearable Nav started with a simple idea – to make the world more accessible for visually impaired individuals. After years of research, prototyping, and testing, we developed a state-of-the-art wearable device that uses advanced technology to offer real-time guidance, obstacle detection, and haptic feedback. Our mission is to ensure that no one feels lost or dependent when navigating busy urban environments.</p>
+    </section>
+
+    <section class="team-section">
+        <h2>Meet the Team</h2>
+        <div class="team-member">
+            <img src="team-member1.jpg" alt="Team Member">
+            <h3>Gourangi Agarwal</h3>
+            
+        </div>
+        <div class="team-member">
+            <img src="team-member2.jpg" alt="Team Member">
+            <h3>Ankit Vijay</h3>
+            
+        </div>
+        <div class="team-member">
+            <img src="team-member3.jpg" alt="Team Member">
+            <h3>Akash Shukla</h3>
+            
+        </div>
+        <div class="team-member">
+            <img src="team-member2.jpg" alt="Team Member">
+            <h3>Amit Kumar</h3>
+            
+        </div>
+    </section>
+
+    <section class="impact-section">
+        <h2>Our Impact</h2>
+        <div class="impact-stats">
+            <div class="stat">
+                <h3>10,000+</h3>
+                <p>Devices Sold</p>
+            </div>
+            <div class="stat">
+                <h3>95%</h3>
+                <p>User Satisfaction</p>
+            </div>
+            <div class="stat">
+                <h3>50+</h3>
+                <p>Countries Served</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Join Us on Our Journey</h2>
+        <a href="/blog">Learn More</a>
+    </section>
+
+   
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - Wearable Device</title>
+    <style>
+
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            background: url('https://i.ytimg.com/vi/bf8RqZBzVKQ/maxresdefault.jpg') no-repeat center center/cover;
+            height: 70vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 6px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 0;
+            background-color: #f4f4f4;
+        }
+        .step {
+            text-align: center;
+            width: 30%;
+        }
+        .step img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .step h3 {
+            margin-top: 10px;
+            font-size: 1.5rem;
+        }
+        .step p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .video-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .video-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .video-section iframe {
+            width: 80%;
+            height: 400px;
+        }
+        .faq-section {
+            padding: 50px 20px;
+            background-color: #e2e2e2;
+        }
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        .faq {
+            margin-bottom: 20px;
+        }
+        .faq h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        .faq p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .cta-section {
+            background-color: #f04e23;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .cta-section a {
+            background-color: white;
+            color: #f04e23;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <% layout("/layouts/boilerplate") %>
+
+    <section class="hero">
+        <h1>How It Works</h1>
+        <p>Simple steps to navigate confidently with our device.</p>
+    </section>
+
+    <section class="steps">
+        <div class="step">
+            <img src="data:image/jpeg;base64,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" alt="Wear the Device">
+            <h3>Step 1: Wear the Device</h3>
+            <p>Comfortably wear the device like a regular accessory.</p>
+        </div>
+        <div class="step">
+            <img src="https://th.bing.com/th/id/OIP.MgA6W5FtSczASp2m46yhtwHaHa?w=156&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Activate the App">
+            <h3>Step 2: Activate the App</h3>
+            <p>Sync with our mobile app to enhance navigation features.</p>
+        </div>
+        <div class="step">
+            <img src="https://th.bing.com/th/id/OIP.6er5Dd1riBumvUWHg_uVbQHaHX?w=167&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Navigate Safely">
+            <h3>Step 3: Navigate Safely</h3>
+            <p>Receive real-time audio guidance and haptic feedback.</p>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <h2>Watch How It Works</h2>
+        <iframe src="https://www.youtube.com/embed/your-video-id" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+            <h4>How do I set up the device?</h4>
+            <p>Simply pair the device with the mobile app via Bluetooth and follow the on-screen instructions to configure settings.</p>
+        </div>
+        <div class="faq">
+            <h4>Does the device work in all weather conditions?</h4>
+            <p>Yes, the device is weather-resistant and can function in rain, snow, and high temperatures.</p>
+        </div>
+        <div class="faq">
+            <h4>How do I charge the device?</h4>
+            <p>The device comes with a charging dock. Place the device on the dock, and it will charge fully in about 2 hours.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Start Navigating with Confidence</h2>
+        <a href="#">Get Started Now</a>
+    </section>
+
+   
+
+</body>
+</html>

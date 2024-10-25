@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bluetooth & GPS Tracking</title>
+  <style>
+  
+    .blue{
+        justify-content: center;
+        align-items: center;
+        margin-left: 33%;
+        margin-top: 10px;
+      }  
+        img{
+            width: 100px;
+            height: 100px;
+          margin-left: 15%;
+          margin-bottom: 20px;
+          border-radius: 100px;
+        }
+        button{
+            border-radius: 10px;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        p{
+            margin-bottom: 20px;
+        }
+  </style>
+</head>
+<body>
+    <% layout("/layouts/boilerplate") %>
+   
+    <div class="blue">
+    <h1>Bluetooth Connection and Gps tracking</h1>
+    <img src="https://th.bing.com/th/id/OIP.nWCTTie_PiGG_fW0ksD2ZwHaE0?w=275&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+ 
+  <p id="status">Status: Not connected</p>
+  <button id="connect">Connect to Bluetooth</button>
+  <button id="disconnect" disabled>Disconnect Bluetooth</button><br>
+  <p id="location">Location: Unknown</p><br>
+</div>
+  <script>
+    // Variables for Bluetooth connection
+    let bluetoothDevice;
+    let locationWatchId;
+
+    // Get DOM elements
+    const connectButton = document.getElementById('connect');
+    const disconnectButton = document.getElementById('disconnect');
+    const statusText = document.getElementById('status');
+    const locationText = document.getElementById('location');
+
+    // 1. Function to track location using Geolocation API
+    function startLocationTracking() {
+      if (navigator.geolocation) {
+        locationWatchId = navigator.geolocation.watchPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+            locationText.innerText = `Location: Your location is
+             Latitude: ${latitude},
+             Longitude: ${longitude}`;
+
+        
+             const mapUrl = `https://maps.google.com/maps?q=${latitude},${longitude}&z=15&output=embed`;
+      locationText.innerHTML += `<br><iframe width="400" height="300" src="${mapUrl}" frameborder="0"></iframe>`;
+    
+          },
+          (error) => {
+            console.error('Error fetching location', error);
+            locationText.innerText = `Location error: ${error.message}`;
+          },
+          {
+            enableHighAccuracy: true,
+            maximumAge: 30000, // 30 seconds
+            timeout: 27000 // 27 seconds
+          }
+        );
+      } else {
+        locationText.innerText = "Geolocation is not supported by your browser.";
+      }
+    }
+
+    // 2. Function to connect to Bluetooth device
+    async function connectToBluetooth() {
+      try {
+        statusText.innerText = 'Connecting to Bluetooth...';
+        bluetoothDevice = await navigator.bluetooth.requestDevice({
+          acceptAllDevices: true, // Filter can be added for specific devices
+          optionalServices: ['battery_service']
+        });
+
+        // Event listener when the device gets disconnected
+        bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
+
+        // Connect to the device's GATT server (if needed)
+        const server = await bluetoothDevice.gatt.connect();
+        statusText.innerText = `Connected to: ${bluetoothDevice.name}`;
+
+        // Enable disconnect button
+        disconnectButton.disabled = false;
+        connectButton.disabled = true;
+
+        // Start GPS tracking
+        startLocationTracking();
+
+      } catch (error) {
+        console.error('Error connecting to Bluetooth', error);
+        statusText.innerText = 'Bluetooth connection failed';
+      }
+    }
+
+    // 3. Function to disconnect Bluetooth
+    function disconnectBluetooth() {
+      if (bluetoothDevice && bluetoothDevice.gatt.connected) {
+        bluetoothDevice.gatt.disconnect();
+        statusText.innerText = 'Disconnected from Bluetooth device';
+        connectButton.disabled = false;
+        disconnectButton.disabled = true;
+
+        // Stop GPS tracking
+        stopLocationTracking();
+      }
+    }
+
+    // 4. Function to stop location tracking
+    function stopLocationTracking() {
+      if (locationWatchId) {
+        navigator.geolocation.clearWatch(locationWatchId);
+        locationText.innerText = 'Location: Unknown';
+      }
+    }
+
+    // 5. Handler for Bluetooth disconnection
+    function onDisconnected() {
+      statusText.innerText = 'Bluetooth device disconnected';
+      connectButton.disabled = false;
+      disconnectButton.disabled = true;
+
+      // Stop GPS tracking
+      stopLocationTracking();
+    }
+
+    // Event listeners for buttons
+    connectButton.addEventListener('click', connectToBluetooth);
+    disconnectButton.addEventListener('click', disconnectBluetooth);
+  </script>
+</body>
+</html>

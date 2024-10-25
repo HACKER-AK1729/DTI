@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Buttons with Sound</title>
+  <style>
+  
+    
+    button {
+        position: sticky;
+        align-items: center;
+        justify-content: center;
+        
+        background-color: #f0f0f0;
+    
+        font-family: Arial, sans-serif;
+      width: 150px;
+      height: 50px;
+      font-size: 20px;
+      cursor: pointer;
+      margin: 12px;
+      margin-left: 37vh;
+     margin-top: 15vh;
+    }
+
+    #path {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+      margin-left: 60vh;
+    }
+  </style>
+</head>
+<body>
+  <% layout ("/layouts/boilerplate") %>
+
+  <button id="left" class="btn btn-primary">Left</button>
+  <button id="right" class="btn btn-primary">Right</button>
+  <button id="forward" class="btn btn-primary">Forward</button>
+  <button id="backward" class="btn btn-primary">Backward</button><br>
+  <button id="save-path" class="btn btn-primary" style="margin-left: 65vh; position:relative; margin-top:20vh">Save Path</button>
+
+  <div id="path"><strong>Path:</strong> <span id="path-log"></span></div>
+
+  <script>
+    const buttons = document.querySelectorAll('button:not(#save-path)');
+    const saveButton = document.getElementById('save-path');
+    const pathLog = document.getElementById('path-log');
+    let path = [];
+
+    // Function to speak text
+    function speakText(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    }
+
+    // Function to handle button click
+    function handleClick(event) {
+      const buttonText = event.target.innerText;
+      speakText(buttonText);
+      path.push(buttonText);
+      updatePathLog();
+    }
+
+    // Function to update the path log on screen
+    function updatePathLog() {
+      pathLog.textContent = path.join(' -> ');
+    }
+
+    // Function to send path to backend
+    async function savePath() {
+      try {
+        const response = await fetch('http://localhost:2000/save-path', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ path }),
+        });
+
+        if (response.ok) {
+          alert('Path saved successfully!');
+        } else {
+          alert('Failed to save path.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred.');
+      }
+    }
+
+    // Add click event listeners to navigation buttons
+    buttons.forEach(button => {
+      button.addEventListener('click', handleClick);
+    });
+
+    // Add click event listener to save button
+    saveButton.addEventListener('click', savePath);
+  </script>
+
+</body>
+</html>

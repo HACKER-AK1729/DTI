@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wristband for Impaired Persons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .head1 {
+            background-color: #514848;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .feature-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            margin-bottom: 20px;
+        }
+        .feature-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            height: 30vh;
+        }
+        .blogs {
+            margin-top: 40px;
+        }
+        .blog-post {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .blog-post h3 {
+            margin-top: 0;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <% layout("/layouts/boilerplate") %>
+
+    
+    <header class="head1">
+        <h1>Wristband for Impaired Persons</h1>
+        <p>Assistive Technology to Improve Lives</p>
+    </header>
+
+    <div class="container">
+        <!-- Features Section -->
+        <section class="features">
+            <div class="feature-item">
+                <h2>Vibration Alerts</h2>
+                <img src="https://th.bing.com/th/id/OIP.lUhEQl95bn8PPtlEXc7xagAAAA?w=257&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Vibration Alerts">
+                <p>The wristband provides vibration-based alerts for notifications like calls or messages, ideal for hearing-impaired individuals.</p>
+            </div>
+            <div class="feature-item">
+                <h2>GPS Tracking</h2>
+                <img src="https://th.bing.com/th/id/OIP.VbEXgumClHsVf4Lh9ZdXQAHaEK?w=324&h=182&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="GPS Tracking">
+                <p>Equipped with GPS, it helps in locating the wearer, providing peace of mind for caregivers and family members.</p>
+            </div>
+            <div class="feature-item">
+                <h2>Emergency SOS Button</h2>
+                <a href=""onclick="callEmergency()" class="sos-button"><img src="https://th.bing.com/th/id/OIP.VhrJPS5i6uRjjlRbruHHgAAAAA?w=328&h=184&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Emergency SOS">
+                   
+                    </a>
+                <p>A quick-press emergency button that sends out an alert to predefined contacts in case of emergency.</p>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="blogs">
+            <h2>Latest Blogs</h2>
+
+            <div class="blog-post">
+                <h3>How Wristbands Improve Daily Life for the Hearing-Impaired</h3>
+                <p>The latest advancements in wearable technology provide life-saving features and daily convenience for those with hearing loss...</p>
+                <a href="#">Read More</a>
+            </div>
+
+            <div class="blog-post">
+                <h3>GPS Tracking: Safety & Peace of Mind for Families</h3>
+                <p>Learn how GPS-enabled wristbands are helping families stay connected to their loved ones, especially those with disabilities...</p>
+                <a href="#">Read More</a>
+            </div>
+
+            <div class="blog-post">
+                <h3>5 Features to Look For in an Assistive Wristband</h3>
+                <p>Finding the right assistive wristband for a loved one can be challenging. Here's a breakdown of the top features you should consider...</p>
+                <a href="#">Read More</a>
+            </div>
+        </section>
+    </div>
+
+    
+
+</body>
+</html>
