@@ -5,7 +5,7 @@ const wrapAsync = require("../utils/wrapAsync.js");
 const ExpressErr = require("../utils/ExpressErr.js");
 const {isLoggedIn}=require("../middleware.js")
 
-router.get("/home",(req,res)=>{
+router.get("/",(req,res)=>{
      res.render("home.ejs")
 })
 router.get("/index",(req,res)=>{
