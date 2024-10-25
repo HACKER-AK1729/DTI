@@ -26,7 +26,7 @@ router.post("/signup",wrapAsync(async(req, res, next) => {
                     return next(err);
                 }
                 req.flash("success", "New  user signUped");
-                res.redirect("/home");
+                res.redirect("/");
             })
         } catch (e) {
             req.flash("error","email or user name alredy exit please try another email!");
@@ -45,7 +45,7 @@ router.post(
     }),
    wrapAsync(async(req, res, next) => {  req.flash("success", " user logined successfully");
     req.flash("success", " user logined successfully");
-        res.redirect("/home");
+        res.redirect("/");
     }
 ));
 router.get('/auth/google',
@@ -61,7 +61,7 @@ router.get('/auth/google',
     
         // Successful authentication, redirect home.
         req.flash("success", " user logined successfully via google" );
-        res.redirect('/home');
+        res.redirect('/');
     });
 // router.get('/auth/google/success',(req, res)=>{
 //     res.send("hello thre")
@@ -74,7 +74,7 @@ router.get("/logout", (req,res,next) =>{
            return next(err);
         }
          req.flash("success","user logged out!");
-        return res.redirect("/home");
+        return res.redirect("/");
     })
 })
 router.post("/contect",isLoggedIn,async(req,res)=>{
@@ -82,7 +82,7 @@ router.post("/contect",isLoggedIn,async(req,res)=>{
         const contect = new Contect(req.body);
         await contect.save();
         req.flash("success","Your form has submitted!");
-        res.redirect("/home");
+        res.redirect("/");
         console.log(contect);
         // res.status(201).send({ message: 'Form submitted successfully' });
       } catch (error) {
